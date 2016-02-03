@@ -1,0 +1,36 @@
+{
+  "name": "image.io",
+  "version": "0.1.0",
+  "description": "use canvas to handle image, such as resize or compress",
+  "main": "build/index.js",
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "babel lib --out-dir build",
+    "example": "webpack --config example/webpack.js",
+    "test": "mocha --require babel-core/register",
+    "test-cov": "istanbul cover node_modules/.bin/_mocha -- --require babel-core/register -R dot -t 2000 test/*.js"
+  },
+  "repository": "haoxins/image.io",
+  "keywords": [
+    "compress",
+    "resize",
+    "canvas",
+    "image"
+  ],
+  "files": [
+    "build/",
+    "lib"
+  ],
+  "author": "haoxin",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "6",
+    "babel-cli": "6",
+    "babel-core": "6",
+    "babel-loader": "6",
+    "babel-preset-es2015": "6",
+    "istanbul": "0",
+    "mocha": "2",
+    "webpack": "1"
+  }
+}
