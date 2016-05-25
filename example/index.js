@@ -1,5 +1,10 @@
 
-import { dataUrlToImage, dataUrlToBlob, resize } from '../lib'
+import {
+  dataUrlToImage,
+  dataUrlToBlob,
+  resize,
+  crop
+} from '../lib'
 
 window.resizeImage = () => {
   const file = document.querySelector('#image-file').files[0]
@@ -15,6 +20,16 @@ window.resizeImage = () => {
       return dataURL
     })
     .then(dataURL => dataUrlToImage(dataURL))
-    .then(img => document.querySelector('main').appendChild(img))
+    .then(img => document.querySelector('#resize').appendChild(img))
+
+    crop(file, {
+      quality: 0.9,
+      x: 20,
+      y: 20,
+      width: 80,
+      height: 60
+    })
+    .then(dataURL => dataUrlToImage(dataURL))
+    .then(img => document.querySelector('#crop').appendChild(img))
   }
 }

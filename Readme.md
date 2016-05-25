@@ -10,21 +10,33 @@
 ### APIs
 
 * resize
+* crop
 
 * dataUrlToImage
 * dataUrlToBlob
 
 ### Examples
 
-* resize image file
+* resize image
 
 ```js
-const file = fileInput.files[0]
-
-resize(file, {
+resize(any, {
   type: 'scale',
   quality: 0.9,
   scale: 0.4
+})
+.then(dataURL => dataUrlToBlob(dataURL))
+```
+
+* crop image
+
+```js
+crop(any, {
+  quality: 0.9,
+  x: 100,
+  y: 100,
+  width: 500,
+  height: 400
 })
 .then(dataURL => dataUrlToBlob(dataURL))
 ```
